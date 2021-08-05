@@ -3,6 +3,7 @@ package models;
 public class Client {
 	// Attributes
 
+
 	private String name;
 	private String lastName;
 	private String identificationDocument;
@@ -52,5 +53,11 @@ public class Client {
 
 	public boolean gethasChildren() {
 		return hasChildren;
+	}
+	
+	@Override
+	public String toString() {
+		return "Client [Nombre: " + name + "Apellido:" + lastName + " Documento de identidad:" + identificationDocument
+				+ "Tiene hijos: " + hasChildren + "]";
 	}
 }

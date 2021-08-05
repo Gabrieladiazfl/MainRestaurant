@@ -12,11 +12,11 @@ public class Product {
 	 */
 	private String name;
 	private String brand; 
-    private int price;
+    private double price;
 	private int quantity; 
 	
 	 //Constructor -> razon: tener una forma de crear por primera vez. Crear un nuevo objeto con una estructura establecida
-	public Product (String name, String brand, int price, int quantity)  {
+	public Product (String name, String brand, double price, int quantity)  {
 		//No son las mismas variables declaradas, habilita crear nuevos productos con las variables ya declaradas
 		
 		this.name = name;
@@ -47,11 +47,11 @@ public class Product {
 		
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
-	public int getPrice () {
+	public double getPrice () {
 		return price;
 	}
 	
@@ -63,7 +63,11 @@ public class Product {
 		return quantity;
 	}
 	
-
+	@Override
+	public String toString() {
+		return "Client [Nombre: " + name + "Marca:" + brand + " Preciio:" + price
+				+ "Cantidad: " + quantity + "]";
+	}
 	
 	
 

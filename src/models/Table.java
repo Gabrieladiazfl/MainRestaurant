@@ -34,7 +34,12 @@ public class Table {
 	  public String getlocation () {
 		   return location;
 	   }
-
+	  
+	  @Override
+		public String toString() {
+			return "Client [Numero: " + number + "Capacidad:" + capacity + " Ubicacion:" + location
+					+"]";
+		}
 }
 
 //cuando no queremos que retorne nada escribimos void 

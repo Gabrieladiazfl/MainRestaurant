@@ -26,4 +26,8 @@ public class Recipe {
 	   public  int getprice () {
 	    	return price;
 	    }
+	   @Override
+		public String toString() {
+			return "Client [Nombre: " + name + "Precio:" + price +"]";
+		}
 }
