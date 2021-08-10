@@ -8,7 +8,7 @@ import models.Table;
 
 public class TableScreen {
     TableController tableController = new TableController();
-	
+	//Crear mesa
 	public void crateTable() {
 		
 	int number;
@@ -33,12 +33,12 @@ public class TableScreen {
 	 System.out.println(result);
 	
 	}
-	
+	// En listar mesas
 	public void listTables() {
 		ArrayList<Table> tables = tableController.getAll();
 		
 		if(tables.size() == 0 ) {
-			System.out.println("No hay mesas creadas en la base de datos");
+			System.out.println("No existen mesas");
 		}
 		
 		for(int i = 0 ; i < tables.size(); i ++) {
@@ -46,7 +46,7 @@ public class TableScreen {
 			System.out.println(table.toString());
 		}
 	}
-	
+	//Buscar mesas
 	public void searchTable() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -56,11 +56,27 @@ public class TableScreen {
 		if(tableNumber != null) {
 			System.out.println(tableNumber.toString());
 		} else {}
-			System.out.println("No hay ninguna mesa creada");
+			System.out.println("No existen mesas");
+	}
+	//Actualizar mesas por numero
+	public void updateTable () {
+		Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Escriba el numero de la mesa que desea actualizar");
+		String tableNumber = sc.nextLine(); //por que aca no va parseInt?????
 	}
 
-
-
-
-
+	
+	//Eliminar mesa por numero
+			public void deleteTable() {
+				Scanner scanner = new Scanner(System.in);
+				System.out.println("Digite el numero de la mesa que desea eliminar:");
+				int number = Integer.parseInt(scanner.nextLine());
+				Boolean tableDeleted = tableController.deleteTable(number);
+				if (tableDeleted) {
+					System.out.println("Se eliminó la mesa");
+				} else {
+					System.out.println("No se encontró la mesa");
+				}
+}
 }

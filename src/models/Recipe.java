@@ -6,11 +6,13 @@ public class Recipe {
 	
 	private String name;
 	private int price;
+	private String code;
 	
 	//Constructor
-	public Recipe (String name, int price){
+	public Recipe (String name, int price, String code){
 		this.name = name;
 		this.price = price;
+		this.code = code;
 	}
 	//Methods get(Fijar) Set(Obtener)
 	
@@ -26,8 +28,14 @@ public class Recipe {
 	   public  int getprice () {
 	    	return price;
 	    }
+	   public void setcode (String code) {
+		   this.code = code;
+	   }
+	   public String getcode () {
+		   return code;
+	   }
 	   @Override
 		public String toString() {
-			return "Client [Nombre: " + name + "Precio:" + price +"]";
+			return "Client [Nombre: " + name + "Precio:" + price + "Codigo:" + code + "]";
 		}
 }

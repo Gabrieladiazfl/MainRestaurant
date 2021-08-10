@@ -8,7 +8,7 @@ import models.Client;
 public class ClientController {
 	
 	ClientRepository clientRepository = new ClientRepository();
-	
+	//crear
 	public String createClient(String name, String lastName, String identificationDocument, boolean hasChild) {
 		 
 		if(name.trim().length() <=3) {
@@ -20,9 +20,12 @@ public class ClientController {
 		}
 		
 		if (identificationDocument.trim().length() <=7) {
-			return "El numero de identificacion no puede ser menor a 7 numeros";
+			return "El numero de identificacion no puede ser menor a 7 digitos";
 		}
-		//Crear 
+		if (identificationDocument.trim().length() >11) {
+			return "El numero de identificacion no puede ser mayor a 11 digitos";
+		}
+		
 		Client client = new Client(name, lastName, identificationDocument, hasChild);
 		
 		boolean result = clientRepository.create(client);
@@ -34,20 +37,28 @@ public class ClientController {
 			System.out.println("");
 			return "Hay un error en los datos al crear el cliente";
 		}
-		
-		
 		}
+	//En listar clientes
 	   public ArrayList<Client> getClients() {
 		return clientRepository.getAll();
-		
-		
 	}
+	   //Buscar por id
 	   public Client searchClient(String id) {
 			Client client = clientRepository.findClientById(id);
 			return client;
 		}
+	   //Actualizar por id
 	   
+	   public String updateClient(Client client, String name, String lastName, String identificationDocument, boolean hasChildren) {
+		   Client clientUpdate = new Client(name, lastName, identificationDocument, hasChildren);
+		   clientRepository.updateClient(client, clientUpdate);
+		   return null;
 	   
+	   }
+	   //Eliminar cliente por id
+	   public Boolean deleteClient(String id) {
+			return clientRepository.deleteClientById(id);
+		}
 
 
 }

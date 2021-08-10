@@ -15,17 +15,18 @@ public class ClientRepository {
 		
 		private ArrayList<Client> clients = new ArrayList<Client>();
 		// Guardar muchos tipo de datos y especificar -> arraylist
+		
+		//Crear cliente
 		public boolean create(Client client) {
 			clients.add(client); 
-			
-			//Una conexion a la base datos ej: Mysql
-			//con una consulta SQl que inserte los datos
 			return true;
 		}
+		
+		// En listar clientes
 		public ArrayList<Client> getAll(){
 			return clients;
 		}
-		//Encontrar cliente por id
+		//Buscar cliente por id
 		public Client findClientById(String id) {
 			
 			for (int i = 0 ; i < clients.size(); i ++) {
@@ -37,8 +38,27 @@ public class ClientRepository {
 					return client;
 				}
 			}
-			
 			return null;
 		}
+		//Actualizar Cliente por id
+		
+		public boolean updateClient(Client client, Client clientUpdate) {
+			int position = clients.indexOf(client);
+			clients.set(position, clientUpdate);
+			return true;	
+		}
+		//Eliminar  cliente por id
+		public Boolean deleteClientById(String id) {
+			for (int i = 0 ; i < clients.size(); i++) {
+				Client client = clients.get(i);
+				if (client.getidentificationDocument().equals(id)) {
+					clients.remove(i);
+					return true;
+				}
+			}
+			return false;
+		}
 	}
+  
+
 

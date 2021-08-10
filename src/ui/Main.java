@@ -7,7 +7,7 @@ import models.Table;
 
 public class Main {
 	
-
+//Main el metodo por donde comienza cualquier programa en java y por ahi va a entrar
 	public static void main(String[] args) {
 		
 		ClientsScreen clientsScreen = new ClientsScreen();
@@ -19,54 +19,76 @@ public class Main {
 		System.out.println("INICIO DEL PROGRAMA");
 		System.out.println("");
 		
+		//
 		while(true) {
 			int selected = menuScreen.showMenuOptions();
-			
+			//Como un if
 			switch(selected) {
 			
-			//Clients
+			//Cliente
 			case 1:
 				clientsScreen.createClient();
-				break;
+				break; //Poner break para que se detenga y no muestre la siguiente opcion
 			case 2:
 				clientsScreen.listClients();
 				break;
-			case 9:
-				clientsScreen.seachClient();
-				break;
-			
-				
-			//Products
 			case 3:
-				productScreen.createProduct();
+				clientsScreen.searchClient();
 				break;
 			case 4:
+				clientsScreen.updateClient();
+				break;
+			case 5:
+				clientsScreen.deleteClient();
+				
+			//Producto
+			case 6:
+				productScreen.createProduct();
+				break;
+			case 7:
 				productScreen.listProducts();
 				break;
-			case 10:
+			case 8:
 				productScreen.searchProduct();
 				break;
+			case 9:
+				productScreen.updateProduct();
+				break;
+			case 10:
+				productScreen.deleteProduct();
+				break;
 				
-			//Recipes
-			case 5:
+			//Recetas
+			case 11:
 				recipeScreen.createRecipe();
 				break;
-			case 6:
+			case 12:
 				recipeScreen.listRecipes();
 				break;
-			case 11:
+			case 13:
 				recipeScreen.searchRecipe();
 				break;
+			case 14:
+				recipeScreen.updateRecipe();
+				break;
+			case 15:
+				recipeScreen.deleteRecipe();
+				break;
 				
-			//Tables
-			case 7:
+			//Mesas
+			case 16:
 				tableScreen.crateTable();
 				break;
-			case 8:
+			case 17:
 				tableScreen.listTables();
 				break;
-			case 12:
+			case 18:
 				tableScreen.searchTable();
+				break;
+			case 19:
+				tableScreen.updateTable();
+			case 20:
+				tableScreen.deleteTable();
 				break;
 				
 			
@@ -80,33 +102,8 @@ public class Main {
 			
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-			
-		
 	}
 
-
-
-	
-
-		
 	}
 	
 	
